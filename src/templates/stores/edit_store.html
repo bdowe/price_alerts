@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="page-header">
+        <h1>Edit Store</h1>
+    </div>
+    <div class="form-size">
+        <form method="post">
+            <div class="form-group">
+                <label for="name">Store name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Store Name" value="{{ store.name }}">
+            </div>
+            <div class="form-group">
+                <label for="url_prefix">Store URL Prefix</label>
+                <input type="text" class="form-control" id="url_prefix" name="url_prefix" placeholder="http://..." value="{{ store.url_prefix }}" aria-describedby="storeURLPrefixHelp">
+                <span id="storeURLPrefixHelp" class="help-block">What characters do urls of all items in this online store start with?</span>
+            </div>
+            <div class="form-group">
+                <label for="title_tag_name">Title Tag Name</label>
+                <input type="text" class="form-control" id="title_tag_name" name="title_tag_name" placeholder="span" value="{{ store.title_tag_name }}" aria-describedby="storeTitleTagNameHelp">
+                <span id="storeTitleTagNameHelp" class="help-block">What is the HTML tag of the item that contains the item title (usually <code>span</code>)</span>
+            </div>
+            <div class="form-group">
+                <label for="title_query">Title Search Query</label>
+                <input type="text" class="form-control" id="title_query" name="title_query" placeholder='{"id": "price-now"}' value='{{ store.title_query | tojson }}' aria-describedby="titleQueryHelpBlock">
+                <span id="titleQueryHelpBlock" class="help-block">What JSON query would we have to do to find the specific tag with the item title? Remember to use double quotation marks!</span>
+            </div>
+            <div class="form-group">
+                <label for="price_tag_name">Price Tag Name</label>
+                <input type="text" class="form-control" id="price_tag_name" name="price_tag_name" placeholder="span" value="span" aria-describedby="storePriceTagNameHelp">
+                <span id="storePriceTagNameHelp" class="help-block">What is the HTML tag of the item that contains the item price (usually <code>span</code>)</span>
+            </div>
+            <div class="form-group">
+                <label for="price_query">Price Search Query</label>
+                <input type="text" class="form-control" id="price_query" name="price_query" placeholder='{"id": "price-now"}' value='{"id": "price-now"}' aria-describedby="priceQueryHelpBlock">
+                <span id="priceQueryHelpBlock" class="help-block">What JSON query would we have to do to find the specific tag with the price? Remember to use double quotation marks!</span>
+            </div>
+            <button type="submit" class="btn btn-warning">Update</button>
+        </form>
+    </div>
+{% endblock %}
