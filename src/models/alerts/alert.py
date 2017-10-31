@@ -29,7 +29,7 @@ class Alert(object):
                 "to": self.user_email,
                 "subject": "Price limit reached for {}".format(self.item.name),
                 "text": "We've found a deal! ({}). To navigate to the alert, visit {}".format(
-                    self.item.url, "http://pricing.bdowe.com/alerts/{}".format(self._id))
+                    self.item.url, "http://price-alerts-2017.herokuapp.com/alerts/{}".format(self._id))
             }
         )
 
